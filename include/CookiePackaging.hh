@@ -29,14 +29,20 @@ private:
   int leftoverBoxes;   /**< Calculated number of leftover boxes. */
 
 public:
+  // Constructors and Destructors
   CookiePackaging();
   CookiePackaging(int);
   ~CookiePackaging();
 
+  // Computation Functions
+  void calculate();
+
+  // GET functions
   int getTotalCookies();
   int getTotalBoxes();
   int getTotalContainers();
   int getLeftoverCookies();
   int getLeftoverBoxes();
 };
+
 #endif // !COOKIE_PACKAGING_HH_INCLUDED

@@ -30,11 +30,31 @@ int main() {
   // Initialize our CookiePackaging object
   CookiePackaging obj(userInput);
 
+  // Run the calculate method on our object
+  obj.calculate();
+
   // Output number of cookie boxes needed
   std::cout << "The number of leftover cookie boxes needed to hold the "
             << "cookies: " << obj.getTotalBoxes() << std::endl;
 
+  // Output leftover cookies, only if there are leftovers!
+  if (obj.getLeftoverCookies() >= 1) {
+    std::cout << "Leftover cookies: " << obj.getLeftoverCookies() << std::endl;
+  }
+
+  // Output number of containers needed
+  std::cout << "The number of containers needed to store the cookie boxes: "
+            << obj.getTotalContainers() << std::endl;
+
+  // Output leftover boxes, only if there are leftovers!
+  if (obj.getLeftoverBoxes() >= 1) {
+    std::cout << "Leftover boxes: " << obj.getLeftoverBoxes() << std::endl;
+  }
+
+  // "Press enter to continue..."
   general_functions::pauseprompt();
+
+  // Return with exit code 0 if all goes well
   return 0;
 }
 

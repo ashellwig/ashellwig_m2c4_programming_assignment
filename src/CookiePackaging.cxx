@@ -41,4 +41,29 @@ inline CookiePackaging::~CookiePackaging() {
 }
 
 inline int CookiePackaging::getTotalCookies() { return totalCookies; }
+
 inline int CookiePackaging::getTotalBoxes() { return totalBoxes; }
+
+inline int CookiePackaging::getTotalContainers() { return totalContainers; }
+
+inline int CookiePackaging::getLeftoverCookies() { return leftoverCookies; }
+
+inline int CookiePackaging::getLeftoverBoxes() { return leftoverBoxes; }
+
+inline void CookiePackaging::calculate() {
+  // Calculate the amount of boxes needed
+  totalBoxes = totalCookies / boxMaxCapacity;
+
+  // Check if there are leftovers
+  if ((totalCookies % boxMaxCapacity) > 0) {
+    leftoverCookies = totalCookies % boxMaxCapacity;
+  }
+
+  // Calculate the amount of containers needed
+  totalContainers = totalBoxes / containerMaxCapacity;
+
+  // Check if there are leftovers
+  if ((totalBoxes % containerMaxCapacity) > 0) {
+    leftoverBoxes = totalBoxes % containerMaxCapacity;
+  }
+}
