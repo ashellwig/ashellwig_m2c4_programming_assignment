@@ -281,11 +281,48 @@ Press any key to continue...
       \vspace{12pt}
       \begin{algorithmic}[1]
         % MAIN
-        \State
         \Function{main}{}
           %% Variables
-        \Comment{--Variable Declarations--}
-          \State $num\gets 0$
+          \State\Comment{Variable Declarations}
+          \State $totalCookies\gets 0$
+          \State $boxMax\gets 24$
+          \State $containerMax\gets 75$
+          \State $leftoverCookies\gets 0$
+          \State $totalBoxes\gets 0$
+          \State $leftoverBoxes\gets 0$
+          \State $totalContainers\gets 0$
+          \State\Comment{Prompt user for values}\State
+          \Call{toOutput}{``Enter your number of cookies''}
+          \State $totalCookies\gets \text{USER\_INPUT}$
+          \State\Comment{Compute the rest of the values}
+          \State $totalBoxes\gets totalCookies\div boxMax$
+            \Comment{Boxes needed}
+          \State $leftoverCookies\gets totalCookies\bmod boxMax$
+            \Comment{Leftover cookies}
+          \State $totalContainers\gets totalBoxes\div containerMax$
+            \Comment{Containers needed}
+          \State $leftoverBoxes\gets totalBoxes\bmod containerMax$
+            \Comment{Leftover boxes}
+          \State\State\Comment{Output calculated information}\State
+          \Call{toOutput}{``The number of boxes needed to hold the cookies: '' %
+            + $totalBoxes$}
+          \State
+          \If{$leftoverCookies > 0$}
+            \Comment{``if'' statement to decide if we need to output}
+            \State
+            \Call{toOutput}{``Leftover cookies: '' + $leftoverCookies$}
+          \EndIf
+          \State\State
+          \Call{toOutput}{``The number of containers needed to hold the %
+            cookie boxes''+ $totalContainers$}
+          \State
+          \If{$leftoverBoxes > 0$}
+            \Comment{``if'' statement to decide if we need to output}
+            \State
+            \Call{toOutput}{``Leftover boxes: '' + $leftoverBoxes$}
+          \EndIf
+          \State\State
+          \Return 0 \Comment{Program`s exit code if all is well}
         \EndFunction
       \end{algorithmic}
       \label{alg:c3program}
@@ -298,7 +335,7 @@ Press any key to continue...
   \section{User Documentation}
     Please see Appendix \ref{appendix:img} for images showing the compilation
       (Figure \ref{img:compilation}) and the running program (Figure
-      \ref{img:running}).
+      \ref{img:running} and Figure \ref{img:running2}).
 
     %% Usage
     \subsection{Build}
