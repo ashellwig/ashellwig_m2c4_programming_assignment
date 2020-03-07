@@ -14,11 +14,6 @@
  * Date: 07 March 2020
  */
 
-// Module 2 Chapter 4 Programming Assignment
-// Ashton Scott Hellwig
-// CSC 160: Introduction to Programming (C++)
-// 07 March 2020
-
 #include "../include/general_functions.hh"
 #include <iostream>
 

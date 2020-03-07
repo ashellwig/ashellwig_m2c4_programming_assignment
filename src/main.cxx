@@ -12,14 +12,29 @@
  * Date: 07 March 2020
  */
 
-#include "../include/general_functions.hh" /** general_functions::pauseprompt */
-#include <iostream>
+#include "../include/CookiePackaging.hh"   // CookiePackaging
+#include "../include/debug.hh"             // verbose_print
+#include "../include/general_functions.hh" // pauseprompt
+#include <iostream>                        // cout, cin
 
 /**
  * \brief Performs the steps to execute the main application.
  */
 int main() {
-  std::cout << "Hello, world!" << std::endl;
+  int userInput = 0; /**< User-provided total number of cookies */
+
+  // Prompt user for total number of cookies.
+  std::cout << "Enter the total number of cookies: ";
+  std::cin >> userInput;
+
+  // Initialize our CookiePackaging object
+  CookiePackaging obj(userInput);
+
+  // Output number of cookie boxes needed
+  std::cout << "The number of leftover cookie boxes needed to hold the "
+            << "cookies: " << obj.getTotalBoxes() << std::endl;
+
+  general_functions::pauseprompt();
   return 0;
 }
 

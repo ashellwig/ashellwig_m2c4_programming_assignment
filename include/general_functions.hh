@@ -1,5 +1,5 @@
 /**
- * @file general_functions.cxx
+ * @file general_functions.hh
  * @author Ashton Scott Hellwig (ahellwig@student.cccs.edu)
  * @brief This file contains global function definitions used to emulate
  *   system-dependent Windows libraries.

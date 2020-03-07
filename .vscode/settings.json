@@ -1,8 +1,19 @@
 {
   /* Files */
   "files.associations": {
+    "*.html": "html",
+    "*.txt": "cmake",
     "*.in": "cpp",
-    "*.txt": "cmake"
+    "iostream": "cpp"
+  },
+  /* JSON */
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features",
+    "editor.formatOnSave": true
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features",
+    "editor.formatOnSave": true
   },
   /* C and C++ */
   "clang-format.language.cpp.style": "LLVM",
