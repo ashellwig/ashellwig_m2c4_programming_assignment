@@ -33,7 +33,7 @@ int main() {
   obj.calculate();
 
   // Output number of cookie boxes needed
-  std::cout << "The number of leftover cookie boxes needed to hold the "
+  std::cout << "The number of cookie boxes needed to hold the "
             << "cookies: " << obj.getTotalBoxes() << std::endl;
 
   // Output leftover cookies, only if there are leftovers!

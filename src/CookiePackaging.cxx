@@ -52,7 +52,7 @@ void CookiePackaging::calculate() {
 
   // Check if there are leftovers
   if ((totalCookies % boxMaxCapacity) > 0) {
-    this->leftoverCookies = totalCookies % boxMaxCapacity;
+    leftoverCookies = totalCookies % boxMaxCapacity;
   }
 
   // Calculate the amount of containers needed
@@ -60,6 +60,6 @@ void CookiePackaging::calculate() {
 
   // Check if there are leftovers
   if ((totalBoxes % containerMaxCapacity) > 0) {
-    this->leftoverBoxes = totalBoxes % containerMaxCapacity;
+    leftoverBoxes = totalBoxes % containerMaxCapacity;
   }
 }
