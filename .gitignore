@@ -11,7 +11,9 @@ doc/user_docs/main.*
 !doc/user_docs/ashellwig_c2p2_userdocs.pdf
 **/out/**
 !**/out/bin/.gitkeep
+!**/out/test/bin/.gitkeep
 !**/out/obj/.gitkeep
+!**/out/test/obj/.gitkeep
 !**/out/doc/.gitkeep
 
 # CPP

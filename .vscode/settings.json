@@ -16,7 +16,7 @@
     "editor.formatOnSave": true
   },
   /* C and C++ */
-  "clang-format.language.cpp.style": "LLVM",
+  "clang-format.language.cpp.style": "file",
   "clang-format.style": "file",
   "[cpp]": {
     "editor.defaultFormatter": "xaver.clang-format",

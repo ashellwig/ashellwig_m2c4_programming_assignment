@@ -27,9 +27,10 @@ OBJS := $(addprefix out/obj/, $(notdir $(SRC:.cxx=.o)))
 all: debug user-doc-release clean
 clean: user-doc-clean
 	$(RM) -f out/obj/*.o
+	$(RM) -f out/test/obj/*.o
 clean-all: clean user-doc-clean-all
 	$(RM) -f out/bin/*.bin
-	$(RM) -f out/bin/*.txt
+	$(RM) -f out/test/bin/*.bin
 	$(RM) -f out/doc/user_docs.pdf
 # Debug Build
 debug: $(OBJS)
@@ -37,6 +38,9 @@ debug: $(OBJS)
 out/obj/%.o: src/%.cxx
 	$(CXX) $(CXXFLAGS) -c $< -o $@ -I$(INCLUDES)
 
+
+test: debug
+	g++ -std=c++11 -Wall -Iinclude/catch2 -Iinclude/fakeit -c 
 
 # Doc
 user-doc-release: user-doc-build user-doc-clean
