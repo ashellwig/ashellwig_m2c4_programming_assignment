@@ -19,7 +19,7 @@
 #include <iostream>
 #include <string>
 
-inline CookiePackaging::CookiePackaging() {
+CookiePackaging::CookiePackaging() {
   verbose_print("Setting all non-constant values to 0 for CookiePackaging "
                 "class instance.");
 
@@ -30,33 +30,29 @@ inline CookiePackaging::CookiePackaging() {
   leftoverBoxes = 0;
 }
 
-inline CookiePackaging::CookiePackaging(int userCookies) {
+CookiePackaging::CookiePackaging(int userCookies) {
   verbose_print("Setting totalCookies based on user input.");
 
   totalCookies = userCookies;
 }
 
-inline CookiePackaging::~CookiePackaging() {
-  verbose_print("Deconstructor called for CookiePackaging.");
-}
+int CookiePackaging::getTotalCookies() { return totalCookies; }
 
-inline int CookiePackaging::getTotalCookies() { return totalCookies; }
+int CookiePackaging::getTotalBoxes() { return totalBoxes; }
 
-inline int CookiePackaging::getTotalBoxes() { return totalBoxes; }
+int CookiePackaging::getTotalContainers() { return totalContainers; }
 
-inline int CookiePackaging::getTotalContainers() { return totalContainers; }
+int CookiePackaging::getLeftoverCookies() { return leftoverCookies; }
 
-inline int CookiePackaging::getLeftoverCookies() { return leftoverCookies; }
+int CookiePackaging::getLeftoverBoxes() { return leftoverBoxes; }
 
-inline int CookiePackaging::getLeftoverBoxes() { return leftoverBoxes; }
-
-inline void CookiePackaging::calculate() {
+void CookiePackaging::calculate() {
   // Calculate the amount of boxes needed
   totalBoxes = totalCookies / boxMaxCapacity;
 
   // Check if there are leftovers
   if ((totalCookies % boxMaxCapacity) > 0) {
-    leftoverCookies = totalCookies % boxMaxCapacity;
+    this->leftoverCookies = totalCookies % boxMaxCapacity;
   }
 
   // Calculate the amount of containers needed
@@ -64,6 +60,6 @@ inline void CookiePackaging::calculate() {
 
   // Check if there are leftovers
   if ((totalBoxes % containerMaxCapacity) > 0) {
-    leftoverBoxes = totalBoxes % containerMaxCapacity;
+    this->leftoverBoxes = totalBoxes % containerMaxCapacity;
   }
 }

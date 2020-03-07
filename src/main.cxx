@@ -13,7 +13,6 @@
  */
 
 #include "../include/CookiePackaging.hh"   // CookiePackaging
-#include "../include/debug.hh"             // verbose_print
 #include "../include/general_functions.hh" // pauseprompt
 #include <iostream>                        // cout, cin
 
@@ -53,6 +52,7 @@ int main() {
 
   // "Press enter to continue..."
   general_functions::pauseprompt();
+  std::cin.ignore();
 
   // Return with exit code 0 if all goes well
   return 0;

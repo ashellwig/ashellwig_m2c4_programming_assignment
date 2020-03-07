@@ -32,7 +32,6 @@ public:
   // Constructors and Destructors
   CookiePackaging();
   CookiePackaging(int);
-  ~CookiePackaging();
 
   // Computation Functions
   void calculate();

@@ -35,7 +35,7 @@ clean-all: clean user-doc-clean-all
 debug: $(OBJS)
 	$(CXX) $(LFLAGS) $(OBJS) -o $(PROGRAM)
 out/obj/%.o: src/%.cxx
-	$(CXX) $(CXXFLAGS) -c $< -o $@ -I $(INCLUDES)
+	$(CXX) $(CXXFLAGS) -c $< -o $@ -I$(INCLUDES)
 
 
 # Doc
