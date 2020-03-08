@@ -19,7 +19,7 @@ CXXFLAGS := -c \
 	-ggdb
 LFLAGS := -std=c++2a -ggdb
 
-TEST_CXXFLAGS := -std=c++11 -Wall -Iinclude/catch2 -Iinclude/fakeit -Iinclude
+TEST_CXXFLAGS := -std=c++11 -Wall -Iinclude/catch2 -Iinclude
 TEST_LFLAGS := -std=c++11 -Wall -o out/test/bin/test.bin
 
 SRC := $(wildcard src/*.cxx)
@@ -44,9 +44,11 @@ out/obj/%.o: src/%.cxx
 
 # Tests
 test: clean debug
-	$(CXX) $(TEST_CXXFLAGS) -c src/CookiePackaging.cxx -o out/test/obj/CookiePackaging.o
+	$(CXX) $(TEST_CXXFLAGS) \
+		-c src/CookiePackaging.cxx -o out/test/obj/CookiePackaging.o
 	$(CXX) $(TEST_CXXFLAGS) -c test/catch_main.cxx -o out/test/obj/catch_main.o
-	$(CXX) $(TEST_LFLAGS) out/test/obj/CookiePackaging.o out/test/obj/catch_main.o test/TestCase.cxx
+	$(CXX) $(TEST_LFLAGS) out/test/obj/CookiePackaging.o \
+		out/test/obj/catch_main.o test/TestCase.cxx
 
 # Doc
 user-doc-release: user-doc-build user-doc-clean

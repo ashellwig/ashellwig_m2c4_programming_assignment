@@ -19,6 +19,10 @@
 #include <iostream>
 #include <string>
 
+/**
+ * @brief Construct a new CookiePackaging::CookiePackaging object.
+ *
+ */
 CookiePackaging::CookiePackaging() {
   verbose_print("Setting all non-constant values to 0 for CookiePackaging "
                 "class instance.");
@@ -30,22 +34,57 @@ CookiePackaging::CookiePackaging() {
   leftoverBoxes = 0;
 }
 
+/**
+ * @brief Construct a new CookiePackaging::CookiePackaging object.
+ *
+ * @param userCookies Total number of cookies to be packaged.
+ */
 CookiePackaging::CookiePackaging(int userCookies) {
   verbose_print("Setting totalCookies based on user input.");
 
   totalCookies = userCookies;
 }
 
+/**
+ * @brief Gets total number of cookies.
+ *
+ * @return int total number of cookies.
+ */
 int CookiePackaging::getTotalCookies() { return totalCookies; }
 
+/**
+ * @brief Gets total number of boxes needed.
+ *
+ * @return int total boxes needed.
+ */
 int CookiePackaging::getTotalBoxes() { return totalBoxes; }
 
+/**
+ * @brief Gets total containers needed
+ *
+ * @return int total containers needed.
+ */
 int CookiePackaging::getTotalContainers() { return totalContainers; }
 
+/**
+ * @brief Gets leftover cookies remaining.
+ *
+ * @return int leftover cookies remaining.
+ */
 int CookiePackaging::getLeftoverCookies() { return leftoverCookies; }
 
+/**
+ * @brief Gets leftover boxes remaining.
+ *
+ * @return int leftover boxes remaining.
+ */
 int CookiePackaging::getLeftoverBoxes() { return leftoverBoxes; }
 
+/**
+ * @brief Calculates the leftovers of boxes and cookies and the total number of
+ * containers and boxes needed for the packaging scenario.
+ *
+ */
 void CookiePackaging::calculate() {
   // Calculate the amount of boxes needed
   totalBoxes = totalCookies / boxMaxCapacity;
