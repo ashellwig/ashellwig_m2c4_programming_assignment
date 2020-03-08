@@ -19,6 +19,9 @@ CXXFLAGS := -c \
 	-ggdb
 LFLAGS := -std=c++2a -ggdb
 
+TEST_CXXFLAGS := -std=c++11 -Wall -Iinclude/catch2 -Iinclude/fakeit -Iinclude
+TEST_LFLAGS := -std=c++11 -Wall -o out/test/bin/test.bin
+
 SRC := $(wildcard src/*.cxx)
 INCLUDES := include
 OBJS := $(addprefix out/obj/, $(notdir $(SRC:.cxx=.o)))
@@ -32,15 +35,18 @@ clean-all: clean user-doc-clean-all
 	$(RM) -f out/bin/*.bin
 	$(RM) -f out/test/bin/*.bin
 	$(RM) -f out/doc/user_docs.pdf
+
 # Debug Build
 debug: $(OBJS)
 	$(CXX) $(LFLAGS) $(OBJS) -o $(PROGRAM)
 out/obj/%.o: src/%.cxx
 	$(CXX) $(CXXFLAGS) -c $< -o $@ -I$(INCLUDES)
 
-
-test: debug
-	g++ -std=c++11 -Wall -Iinclude/catch2 -Iinclude/fakeit -c 
+# Tests
+test: clean debug
+	$(CXX) $(TEST_CXXFLAGS) -c src/CookiePackaging.cxx -o out/test/obj/CookiePackaging.o
+	$(CXX) $(TEST_CXXFLAGS) -c test/catch_main.cxx -o out/test/obj/catch_main.o
+	$(CXX) $(TEST_LFLAGS) out/test/obj/CookiePackaging.o out/test/obj/catch_main.o test/TestCase.cxx
 
 # Doc
 user-doc-release: user-doc-build user-doc-clean

@@ -412,4 +412,34 @@ cd ~/Downloads/ashellwig_m2c4_programming_assignment/bin
       \caption{Running Chapter 4`s Program -- No leftovers}
       \label{img:running2}
     \end{figure}
-\end{document}
+
+
+  \newpage
+  \section{Unit Tests}
+    Tests were written with the Catch2 library like so:
+
+    \begin{lstlisting}[language=C++,caption={test/TestCase.cxx}]
+#include "../include/CookiePackaging.hh"
+#include "../include/catch2/catch.hh"
+
+TEST_CASE("Example input data is correct", "[]") {
+  CookiePackaging obj(12345);
+  obj.calculate();
+
+  REQUIRE(obj.getTotalCookies() == 12345);
+  REQUIRE(obj.getTotalBoxes() == 514);
+  REQUIRE(obj.getTotalContainers() == 6);
+  REQUIRE(obj.getLeftoverCookies() == 9);
+  REQUIRE(obj.getLeftoverBoxes() == 64);
+}
+    \end{lstlisting}
+
+    The output is below.
+
+    \begin{figure}[H]
+      \caption{Test Output}
+      \centering
+      \includegraphics[width=\textwidth]{testout.png}
+    \end{figure}
+\end{document}\caption{Test Output}
+
